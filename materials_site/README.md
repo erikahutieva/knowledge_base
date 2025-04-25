@@ -5,6 +5,10 @@ https://github.com/erikahutieva/knowledge_base.git
 # 2. Активируйте виртуальную среду и установите зависимости
 
 source myenv/bin/activate
+
+
+
+
 pip install -r requirements.txt
 
 # 3. Скачайте модель Deepseek и добавьте в папку materials_site/school_portal/coursework/ml_models/
