@@ -13,6 +13,7 @@ from PIL import Image
 import pytesseract
 from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Q
+from django.shortcuts import render
 
 def login_view(request):
     if request.method == 'POST':
@@ -195,3 +196,12 @@ def search(request):
         'results': results,
         'ai_response': ai_response
     })
+
+
+
+def custom_error_view(request, exception=None, error_code=None):
+    context = {
+        'error_code': error_code or getattr(exception, 'status_code', None),
+        'error_message': str(exception) if exception else None
+    }
+    return render(request, 'error.html', context, status=context['error_code'])

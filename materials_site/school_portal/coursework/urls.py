@@ -1,6 +1,13 @@
 from django.urls import path
 from . import views
 from .views import chat
+from django.urls import path
+from django.conf.urls import handler403, handler404, handler500
+from .views import custom_error_view
+
+handler403 = custom_error_view
+handler404 = custom_error_view
+handler500 = custom_error_view
 
 urlpatterns = [
     path('main', views.discipline_list, name='home'),
