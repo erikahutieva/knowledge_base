@@ -17,11 +17,11 @@ class TeacherForm(forms.ModelForm):
         fields = ['subject', 'name']
 
 class PDFUploadForm(forms.ModelForm):
-    subject = forms.ModelChoiceField(queryset=Subject.objects.all(), label='Выберите предмет')  # Added subject selection field
+    subject = forms.ModelChoiceField(queryset=Subject.objects.all(), label='Выберите предмет')  #
 
     class Meta:
         model = PDFFile
-        fields = ['file', 'subject']  # Added field for selecting subject
+        fields = ['file', 'subject']  
 
 class DynamicForm(forms.Form):
     discipline = forms.ModelChoiceField(
@@ -44,8 +44,8 @@ class DynamicForm(forms.Form):
                 discipline_id = int(self.data.get('discipline'))
                 self.fields['subject'].queryset = Subject.objects.filter(discipline_id=discipline_id).order_by('name')
             except (ValueError, TypeError):
-                pass  # If discipline is invalid, keep it empty
+                pass  
         elif self.instance.pk:
             self.fields['subject'].queryset = self.instance.discipline.subject_set.order_by('name')
 
-# Removed duplicate PDFFileForm to avoid redundancy
+

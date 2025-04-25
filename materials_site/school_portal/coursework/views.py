@@ -15,12 +15,6 @@ from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Q
 
 def login_view(request):
-    """
-    Функция для входа пользователя.
-    При POST-запросе получает логин и пароль из формы,
-    проверяет их с помощью функции authenticate и, если данные корректны, выполняет вход.
-    После успешной авторизации происходит перенаправление на home.html.
-    """
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -33,9 +27,6 @@ def login_view(request):
     return render(request, 'login.html')
 
 def logout_view(request):
-    """
-    Функция для выхода пользователя.
-    """
     logout(request)
     return redirect('login')
 
@@ -64,7 +55,7 @@ def teacher_detail(request, teacher_id):
 
 @login_required
 def upload_pdf(request, teacher_id):
-    if not request.user.has_perm('your_app_label.can_upload_pdf'):
+    if not request.user.has_perm('teach'):
         return HttpResponseForbidden("У вас нет прав для загрузки PDF файлов.")
     
     teacher = get_object_or_404(Teacher, id=teacher_id)  
@@ -87,7 +78,7 @@ openai.api_key = settings.OPENAI_API_KEY
 
 @login_required
 def chat(request):
-    if not request.user.has_perm('your_app_label.can_chat'):
+    if not request.user.has_perm('teach'):
         return HttpResponseForbidden("У вас нет прав для доступа к чату.")
     
     context = {}
@@ -137,12 +128,10 @@ def chat(request):
 
 @login_required
 def ai_chat(request):
-    """Представление для чата с Mistral моделью"""
     if request.method == 'POST':
         message = request.POST.get('message', '').strip()
         if message:
             try:
-                # Генерация ответа с помощью модели
                 response = model.generate(message)
                 return render(request, 'chat_ai.html', {
                     'user_message': message,
@@ -158,7 +147,7 @@ def ai_chat(request):
 
 @csrf_exempt
 def chat_api(request):
-    """API для обработки запросов чата с Mistral моделью"""
+
     if request.method == 'POST':
         prompt = request.POST.get('message', '')
         try:
@@ -179,13 +168,11 @@ def chat_api(request):
 
 @login_required
 def search(request):
-    """Поиск по PDF файлам и взаимодействие с моделью"""
     query = request.GET.get('q', '').strip()
     results = []
     ai_response = None
     
     if query:
-        # Поиск PDF файлов
         results = PDFFile.objects.filter(
             Q(custom_name__icontains=query) | 
             Q(teacher__name__icontains=query) |
@@ -193,7 +180,6 @@ def search(request):
             Q(teacher__subject__discipline__name__icontains=query)
         ).distinct()
         
-        # Получение ответа от AI модели
         try:
             ai_prompt = f"Пользователь ищет информацию по запросу: '{query}'. " \
                         "Дайте краткий ответ или совет по этому запросу."

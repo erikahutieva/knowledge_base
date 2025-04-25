@@ -84,19 +84,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-# Настройки Tesseract OCR для Mac
-TESSERACT_CMD = '/opt/homebrew/bin/tesseract'  # Путь для Mac с ARM (M1/M2)
-# Или для Intel Mac:
-# TESSERACT_CMD = '/usr/local/bin/tesseract'
 
-# Настройки загрузки файлов
+TESSERACT_CMD = '/opt/homebrew/bin/tesseract'  
+
+
+
 CHAT_PHOTOS_DIR = 'chat_photos/'
-MAX_UPLOAD_SIZE = 5 * 1024 * 1024  # 5MB
+MAX_UPLOAD_SIZE = 5 * 1024 * 1024  
 ALLOWED_IMAGE_EXTENSIONS = ['jpg', 'jpeg', 'png', 'gif']
 
 import platform
 
-# Автоматическое определение архитектуры Mac
 if platform.system() == 'Darwin':
     if platform.machine() == 'arm64':
         TESSERACT_CMD = '/opt/homebrew/bin/tesseract'
