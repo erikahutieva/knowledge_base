@@ -24,6 +24,7 @@ def login_view(request):
             return redirect('home')
         else:
             messages.error(request, 'Неверное имя пользователя или пароль')
+    
     return render(request, 'login.html')
 
 def logout_view(request):
@@ -55,8 +56,8 @@ def teacher_detail(request, teacher_id):
 
 @login_required
 def upload_pdf(request, teacher_id):
-    if not request.user.has_perm('teach'):
-        return HttpResponseForbidden("У вас нет прав для загрузки PDF файлов.")
+    if not request.user.groups.filter(name='simple').exists():
+        return render(request, "permission_student.html")
     
     teacher = get_object_or_404(Teacher, id=teacher_id)  
     pdf_files = PDFFile.objects.filter(teacher=teacher)  
@@ -128,6 +129,8 @@ def chat(request):
 
 @login_required
 def ai_chat(request):
+    if not request.user.groups.filter(name='student').exists():
+        return render(request, "permission_teach.html")
     if request.method == 'POST':
         message = request.POST.get('message', '').strip()
         if message:

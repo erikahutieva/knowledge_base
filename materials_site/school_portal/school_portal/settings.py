@@ -86,7 +86,7 @@ MEDIA_URL = '/media/'
 
 
 TESSERACT_CMD = '/opt/homebrew/bin/tesseract'  
-
+SESSION_COOKIE_AGE = 120960
 
 
 CHAT_PHOTOS_DIR = 'chat_photos/'
