@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Преподаватели предмета {{ subject.name }}</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Internal CSS -->
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: radial-gradient(circle at 50% 50%, #6a11cb, #2575fc);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+        }
+        h1::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #fff;
+            border-radius: 2px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 12px 25px;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            display: inline-block;
+        }
+        li:hover {
+            background-color: #6a11cb;
+            color: #fff;
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.4s ease;
+        }
+        .back-link:hover {
+            background-color: #fff;
+            color: #6a11cb;
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 40px;
+                max-width: 95%;
+            }
+            li {
+                font-size: 1.2em;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Преподаватели по предмету: {{ subject.name }}</h1>
+        <ul>
+            {% for teacher in teachers %}
+                <li>
+                    <a href="{% url 'teacher_detail' teacher.id %}" style="color: inherit; text-decoration: none;"> <!-- Ссылка на страницу преподавателя -->
+                        <i class="fas fa-user-tie"></i> {{ teacher.name }}
+                    </a>
+                </li>
+            {% empty %}
+                <li>Нет доступных преподавателей для этого предмета</li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'subject_list' subject.discipline.id %}" class="back-link">
+            <i class="fas fa-arrow-left"></i> Назад к предметам
+        </a>
+    </div>
+</body>
+</html>

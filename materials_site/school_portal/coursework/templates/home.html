@@ -1,0 +1,125 @@
+<!-- home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дисциплины</title>
+    <!-- Иконка на вкладке -->
+    <link rel="icon" href="./311_kaf.jpg" type="image/jpg">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Internal CSS -->
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: radial-gradient(circle at 50% 50%, #6a11cb, #2575fc);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+        h1 {
+            text-align: center;
+            font-size: 3em;
+            margin-bottom: 40px;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+        }
+        h1::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #fff;
+            border-radius: 2px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 20px;
+        }
+        a {
+            text-decoration: none;
+            color: #6a11cb;
+            font-size: 1.5em;
+            padding: 15px 30px;
+            background-color: #fff;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            display: inline-block;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+        a:hover {
+            background-color: #6a11cb;
+            color: #fff;
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        }
+        a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            border-radius: 50px;
+            z-index: -1;
+            transition: opacity 0.4s ease;
+            opacity: 0;
+        }
+        a:hover::before {
+            opacity: 1;
+        }
+        a i {
+            margin-right: 10px;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 40px;
+                max-width: 95%;
+            }
+            a {
+                font-size: 1.2em;
+                padding: 12px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Список дисциплин</h1>
+        <ul>
+            {% for discipline in disciplines %}
+                <li><a href="{% url 'subject_list' discipline.id %}"><i class="fas fa-book"></i>{{ discipline.name }}</a></li>
+            {% empty %}
+                <li>Нет доступных дисциплин</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

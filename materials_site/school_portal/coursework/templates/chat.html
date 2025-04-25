@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Чат с нейросетью</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: radial-gradient(circle at 50% 50%, #6a11cb, #2575fc);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #fff;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            resize: none;
+            font-size: 1em;
+        }
+        form input[type="file"] {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        form button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 1em;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: linear-gradient(135deg, #FF9A00, #FFC94A);
+            color: #3F045C;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 154, 0, 0.3);
+        }
+        .message-block {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .message-block h2 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .message-block p {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+            word-wrap: break-word;
+        }
+        .error {
+            color: #ffcccc;
+            margin-top: 20px;
+            padding: 10px;
+            background: rgba(255, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Чат с нейросетью</h1>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <textarea name="message" placeholder="Введите ваше сообщение" rows="4"></textarea><br>
+            <!-- Поле для выбора фото -->
+            <input type="file" name="photo"><br>
+            <button type="submit">Отправить</button>
+        </form>
+
+        {% if user_message %}
+            <div class="message-block">
+                <h2>Ваше сообщение:</h2>
+                <p>{{ user_message }}</p>
+            </div>
+        {% endif %}
+
+        {% if assistant_message %}
+            <div class="message-block">
+                <h2>Ответ нейросети:</h2>
+                <p>{{ assistant_message }}</p>
+            </div>
+        {% endif %}
+
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
