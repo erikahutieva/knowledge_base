@@ -144,3 +144,31 @@ Session data corrupted
 "GET /teacher/5/ HTTP/1.1" 200 5770
 "GET /teacher/5/upload/ HTTP/1.1" 200 3126
 "GET / HTTP/1.1" 200 3771
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 3771
+Session data corrupted
+"POST / HTTP/1.1" 302 0
+"GET /main HTTP/1.1" 200 3804
+"GET /discipline/1/ HTTP/1.1" 200 4830
+"GET /subject/4/teachers/ HTTP/1.1" 200 4128
+"GET /teacher/9/ HTTP/1.1" 200 5676
+"GET / HTTP/1.1" 200 3771
+"POST / HTTP/1.1" 302 0
+"GET /main HTTP/1.1" 200 3804
+"GET /discipline/2/ HTTP/1.1" 200 4603
+"GET /subject/8/teachers/ HTTP/1.1" 200 3787
+"GET /teacher/5/ HTTP/1.1" 200 5770
+"GET /teacher/5/upload/ HTTP/1.1" 200 5781
+"POST /teacher/5/upload/ HTTP/1.1" 302 0
+"GET /teacher/5/upload/ HTTP/1.1" 200 5809
+"GET /teacher/5/ HTTP/1.1" 200 6033
+"GET /ai-chat/ HTTP/1.1" 200 3630
+"GET / HTTP/1.1" 200 3771
+"POST / HTTP/1.1" 302 0
+"GET /main HTTP/1.1" 200 3804
+"GET /discipline/2/ HTTP/1.1" 200 4603
+"GET /subject/1/teachers/ HTTP/1.1" 200 3785
+"GET /teacher/1/ HTTP/1.1" 200 4952
+"GET /teacher/1/upload/ HTTP/1.1" 200 3126
+"GET /ai-chat/ HTTP/1.1" 200 3630
