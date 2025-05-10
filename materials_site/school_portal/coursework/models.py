@@ -2,10 +2,13 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from django.conf import settings
 import os
+import subprocess
+import json
+from django.http import JsonResponse
 
+User = get_user_model()  # Получаем модель пользователя
 
-User = get_user_model()
-
+# Модель дисциплины
 class Discipline(models.Model):
     name = models.CharField(max_length=200)
 
@@ -17,6 +20,7 @@ class Discipline(models.Model):
     def __str__(self) -> str:
         return self.name
 
+# Модель предмета, связана с дисциплиной
 class Subject(models.Model):
     name = models.CharField(max_length=200)
     discipline = models.ForeignKey(Discipline, on_delete=models.CASCADE, related_name='subjects')
@@ -29,6 +33,7 @@ class Subject(models.Model):
     def __str__(self) -> str:
         return self.name
 
+# Модель преподавателя, связан с предметом
 class Teacher(models.Model):
     name = models.CharField(max_length=200)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE, related_name='teachers')
@@ -41,6 +46,7 @@ class Teacher(models.Model):
     def __str__(self) -> str:
         return self.name
 
+# Модель PDF-файла, связана с преподавателем и пользователем
 class PDFFile(models.Model):
     file = models.FileField(upload_to='pdfs/')
     uploaded_at = models.DateTimeField(auto_now_add=True)
@@ -59,25 +65,22 @@ class PDFFile(models.Model):
     def __str__(self):
         return self.custom_name if self.custom_name else self.file.name
 
-from llama_cpp import Llama
+# Функция запроса к LLaMA через llama-cli
+def query_llama(prompt):
+    command = ["llama-cli", "--color", "-m", "ml_models/model.gguf"]
+    process = subprocess.Popen(
+        command,
+        stdin=subprocess.PIPE,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True
+    )
 
-class MistralModel:
-    def __init__(self, model_path):
-        self.llm = Llama(
-            model_path=model_path,
-            n_ctx=2048,
-            n_threads=4
-        )
-    
-    def generate(self, prompt):
-        output = self.llm(
-            prompt,
-            max_tokens=256,
-            temperature=0.7,
-            top_p=0.95,
-            echo=False
-        )
-        return output['choices'][0]['text']
+    stdout, stderr = process.communicate(input=prompt + "\n")
+
+    if stderr:
+        return {"error": stderr}
+    return {"response": stdout}
 
 
-model = MistralModel(os.path.join(settings.BASE_DIR, 'coursework/ml_models', 'mistral-7b-instruct-v0.2.Q4_K_M.gguf'))
+# llama-cli --color -m Downloads/mistral-7b-instruct-v0.2.Q4_K_M.gguf

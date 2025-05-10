@@ -18,6 +18,6 @@ urlpatterns = [
     path('teacher/<int:teacher_id>/', views.teacher_detail, name='teacher_detail'),
     path('teacher/<int:teacher_id>/upload/', views.upload_pdf, name='upload_pdf'),
     path('chat/', views.chat, name='chat'),
-    path('ai-chat/', views.ai_chat, name='ai_chat'),
-    path('api/chat/', views.chat_api, name='chat_api'),
+    path('ai-chat/', views.llama_page, name='ai_chat'),
+    path("llama/response/", views.llama_response, name="llama_response"),
 ]

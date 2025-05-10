@@ -49,6 +49,30 @@ TEMPLATES = [
     },
 ]
 
+# Настройки логирования
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+        'file': {
+            'class': 'logging.FileHandler',
+            'filename': 'llama_chat.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console', 'file'],
+            'level': 'INFO',
+        },
+        'your_app_name': {  # Замените на имя вашего приложения
+            'handlers': ['console', 'file'],
+            'level': 'DEBUG',
+        },
+    },
+}
 WSGI_APPLICATION = 'school_portal.wsgi.application'
 
 DATABASES = {
