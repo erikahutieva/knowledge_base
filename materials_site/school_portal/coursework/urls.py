@@ -1,6 +1,5 @@
 from django.urls import path
 from . import views
-from .views import chat
 from django.urls import path
 from django.conf.urls import handler403, handler404, handler500
 from .views import custom_error_view
@@ -17,7 +16,5 @@ urlpatterns = [
     path('subject/<int:subject_id>/teachers/', views.teacher_list, name='teacher_list'),
     path('teacher/<int:teacher_id>/', views.teacher_detail, name='teacher_detail'),
     path('teacher/<int:teacher_id>/upload/', views.upload_pdf, name='upload_pdf'),
-    path('chat/', views.chat, name='chat'),
-    path('ai-chat/', views.llama_page, name='ai_chat'),
-    path("llama/response/", views.llama_response, name="llama_response"),
+    path('ai-chat/', views.ai_chat, name='ai_chat'),
 ]

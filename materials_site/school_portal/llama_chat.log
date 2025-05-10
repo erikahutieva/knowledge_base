@@ -172,3 +172,116 @@ Session data corrupted
 "GET /teacher/1/ HTTP/1.1" 200 4952
 "GET /teacher/1/upload/ HTTP/1.1" 200 3126
 "GET /ai-chat/ HTTP/1.1" 200 3630
+Watching for file changes with StatReloader
+/Users/erika/Desktop/knowledge_base/materials_site/school_portal/coursework/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/erika/Desktop/knowledge_base/materials_site/school_portal/coursework/urls.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 3771
+Session data corrupted
+"POST / HTTP/1.1" 302 0
+"GET /main HTTP/1.1" 200 3804
+"GET /discipline/2/ HTTP/1.1" 200 4603
+"GET /subject/8/teachers/ HTTP/1.1" 200 3787
+"GET /teacher/5/ HTTP/1.1" 200 6033
+Method Not Allowed (GET): /ai-chat/
+"GET /ai-chat/ HTTP/1.1" 405 0
+Method Not Allowed (GET): /ai-chat/
+"GET /ai-chat/ HTTP/1.1" 405 0
+Method Not Allowed (GET): /ai-chat/
+"GET /ai-chat/ HTTP/1.1" 405 0
+Method Not Allowed (GET): /ai-chat/
+"GET /ai-chat/ HTTP/1.1" 405 0
+Method Not Allowed (GET): /ai-chat/
+"GET /ai-chat/ HTTP/1.1" 405 0
+Method Not Allowed (GET): /ai-chat/
+"GET /ai-chat/ HTTP/1.1" 405 0
+Method Not Allowed (GET): /ai-chat/
+"GET /ai-chat/ HTTP/1.1" 405 0
+Method Not Allowed (GET): /ai-chat/
+"GET /ai-chat/ HTTP/1.1" 405 0
+Method Not Allowed (GET): /ai-chat/
+"GET /ai-chat/ HTTP/1.1" 405 0
+/Users/erika/Desktop/knowledge_base/materials_site/school_portal/coursework/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /ai-chat/ HTTP/1.1" 302 0
+"GET /ai-chat/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 3771
+Session data corrupted
+"GET /admin/ HTTP/1.1" 302 0
+Session data corrupted
+"GET /admin/login/?next=/admin/ HTTP/1.1" 200 4160
+"GET /static/admin/css/base.css HTTP/1.1" 200 22092
+"GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+"GET /static/admin/js/theme.js HTTP/1.1" 304 0
+"GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+"GET /static/admin/css/login.css HTTP/1.1" 304 0
+"GET /static/admin/css/responsive.css HTTP/1.1" 200 17972
+"GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+Session data corrupted
+"POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+"GET /admin/ HTTP/1.1" 200 12069
+"GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+"GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+"GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+"GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 304 0
+"GET /admin/auth/group/ HTTP/1.1" 200 11343
+"GET /static/admin/css/changelists.css HTTP/1.1" 200 6878
+"GET /static/admin/js/core.js HTTP/1.1" 200 6208
+"GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9097
+"GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+"GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+"GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+"GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+"GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+"GET /static/admin/img/search.svg HTTP/1.1" 304 0
+"GET /static/admin/js/filters.js HTTP/1.1" 304 0
+"GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+/Users/erika/Desktop/knowledge_base/materials_site/school_portal/coursework/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/erika/Desktop/knowledge_base/materials_site/school_portal/coursework/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/erika/Desktop/knowledge_base/materials_site/school_portal/coursework/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/erika/Desktop/knowledge_base/materials_site/school_portal/coursework/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/erika/Desktop/knowledge_base/materials_site/school_portal/coursework/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/erika/Desktop/knowledge_base/materials_site/school_portal/coursework/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/erika/Desktop/knowledge_base/materials_site/school_portal/coursework/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/erika/Desktop/knowledge_base/materials_site/school_portal/coursework/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/erika/Desktop/knowledge_base/materials_site/school_portal/coursework/views.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/erika/Desktop/knowledge_base/materials_site/school_portal/coursework/views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 3771
+Session data corrupted
+"POST / HTTP/1.1" 302 0
+"GET /main HTTP/1.1" 200 3804
+"GET /discipline/3/ HTTP/1.1" 200 4238
+"GET /subject/7/teachers/ HTTP/1.1" 200 3799
+"GET /teacher/4/ HTTP/1.1" 200 5938
+"GET /ai-chat/ HTTP/1.1" 302 0
+"GET /ai-chat/ HTTP/1.1" 302 0
+"GET /teacher/4/upload/ HTTP/1.1" 200 3126
+"GET / HTTP/1.1" 200 3771
+"POST / HTTP/1.1" 302 0
+"GET /main HTTP/1.1" 200 3804
+"GET /discipline/2/ HTTP/1.1" 200 4603
+"GET /subject/8/teachers/ HTTP/1.1" 200 3787
+"GET /teacher/5/ HTTP/1.1" 200 6033
+"GET /ai-chat/ HTTP/1.1" 200 3126
+"GET / HTTP/1.1" 200 3771
+"POST / HTTP/1.1" 302 0
+"GET /main HTTP/1.1" 200 3804
+"GET /discipline/2/ HTTP/1.1" 200 4603
+"GET /subject/8/teachers/ HTTP/1.1" 200 3787
+"GET /teacher/5/ HTTP/1.1" 200 6033
+"GET /teacher/5/upload/ HTTP/1.1" 200 5809
+"GET /ai-chat/ HTTP/1.1" 302 0
