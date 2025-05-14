@@ -12,6 +12,11 @@ pip install -r requirements.txt
 
 https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.2-GGUF/blob/main/mistral-7b-instruct-v0.2.Q4_K_M.gguf
 
+Запустите ее в терминале с помощью команды
+llama-server -m /Users/erika/Downloads/mistral-7b-instruct-v0.2.Q4_K_M.gguf --temp 0.7 --ctx-size 4096
+
+
+
 # 4. Запустите проект
 
 python manage.py runserver
