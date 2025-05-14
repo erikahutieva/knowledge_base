@@ -285,3 +285,26 @@ Session data corrupted
 "GET /teacher/5/ HTTP/1.1" 200 6033
 "GET /teacher/5/upload/ HTTP/1.1" 200 5809
 "GET /ai-chat/ HTTP/1.1" 302 0
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 3771
+"POST / HTTP/1.1" 302 0
+"GET /main HTTP/1.1" 200 3804
+"GET /discipline/3/ HTTP/1.1" 200 4238
+"GET /subject/7/teachers/ HTTP/1.1" 200 3799
+"GET /teacher/4/ HTTP/1.1" 200 5938
+"GET /ai-chat/ HTTP/1.1" 302 0
+Watching for file changes with StatReloader
+Session data corrupted
+"GET /discipline/3/ HTTP/1.1" 302 0
+Not Found: /accounts/login/
+"GET /accounts/login/?next=/discipline/3/ HTTP/1.1" 404 4587
+Not Found: /accounts/login/
+"GET /accounts/login/?next=/discipline/3/ HTTP/1.1" 404 4587
+"GET / HTTP/1.1" 200 3771
+Session data corrupted
+"POST / HTTP/1.1" 302 0
+"GET /main HTTP/1.1" 200 3804
+"GET /discipline/2/ HTTP/1.1" 200 4603
+"GET /subject/8/teachers/ HTTP/1.1" 200 3787
+"GET /teacher/5/ HTTP/1.1" 200 6033
+"GET /ai-chat/ HTTP/1.1" 302 0

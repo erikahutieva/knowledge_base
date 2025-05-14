@@ -1,3 +1,4 @@
+# Таблица
 LogEntry: Содержит записи логов с полями, такими как id, content_type, user, action_flag, action_time, change_message, object_id, и object_repr.
 User: Представляет пользователей системы с полями, такими как id, date_joined, email, first_name, is_active, is_staff, is_superuser, last_login, password, и username.
 AbstractUser: Абстрактный класс, от которого наследуются другие классы, такие как User.
